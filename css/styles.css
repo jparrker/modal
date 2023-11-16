@@ -141,6 +141,11 @@ main {
   transition-delay: 0s;
 }
 
+.modal-is-open .wave-hand {
+  tranform-origin: bottom center; 
+  animation: zoom 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), wave 1s 0.55s ease-in-out;
+}
+
 @keyframes point {
   0% {
     transform: translateY(3em);
@@ -150,7 +155,49 @@ main {
     transform: translateY(0)
     opacity: 1;
   }
+
 }
+
+
+@keyframes wave {
+  0% {
+    /* Start at center */
+    transform: rotate(0);
+  }
+  20% {
+    /* Rotate to its left */
+    transform: rotate(15deg);
+  }
+  40% {
+    /* Rotate to its right */
+    transform: rotate(-15deg);
+  }
+  60% {
+    /* Rotate to its left */
+    transform: rotate(15deg);
+  }
+  80% {
+    /* Rotate to its right */
+    transform: rotate(-15deg);
+  }
+  100% {
+    /* Back to center */
+    tranform: rotate(0)
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0.25);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .point-hand {
   animation: point 1s cubic-bezier(0.18, 0.89, 0.32, 1.28)
 }
